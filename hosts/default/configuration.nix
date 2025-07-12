@@ -49,6 +49,9 @@
   # Waybar 
   programs.waybar.enable = true;
 
+  # Enable zsh
+  programs.zsh.enable = true;
+
   # Configure console keymap
   console.keyMap = "uk";
 
