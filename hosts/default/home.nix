@@ -1,22 +1,11 @@
 { config, pkgs, ... }:
 
 {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
   home.username = "tibtab";
   home.homeDirectory = "/home/tibtab";
 
-  # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
-  #
-  # You should not change this value, even if you update Home Manager. If you do
-  # want to update the value, then make sure to first check the Home Manager
-  # release notes.
-  home.stateVersion = "25.05"; # Please read the comment before changing.
+  home.stateVersion = "25.05";
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
   home.packages = [
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -34,10 +23,11 @@
     pkgs.wofi
     pkgs.ghostty
     pkgs.fastfetch
+    pkgs.vesktop
+    pkgs.obs-studio
+    # pkgs.obsidian
   ];
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
   home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
@@ -68,8 +58,11 @@
   #  /etc/profiles/per-user/tibtab/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
   };
+
+  # Enable mako (notifications)
+  services.mako.enable = true;
 
   # Hyprland config
   wayland.windowManager.hyprland = {
@@ -77,11 +70,43 @@
     settings = {
       "$mod" = "SUPER";
       bind = [
-        "$mod, F, exec, firefox"
-        "$mod, Q, exec, ghostty"
+        "$mod, Return, exec, ghostty"
         "$mod, M, exit,"
-        "$mod, C, killactive,"
+        "$mod, W, killactive,"
+	"$mod, Space, exec, wofi --show drun"
+	"$mod, H, movefocus, l"
+	"$mod, J, movefocus, d"
+	"$mod, K, movefocus, u"
+	"$mod, L, movefocus, r"
+	"$mod, F, fullscreen,"
+	"$mod, 1, workspace, 1"
+	"$mod, 2, workspace, 2"
+	"$mod, 3, workspace, 3"
+	"$mod, 4, workspace, 4"
+	"$mod, 5, workspace, 5"
+	"$mod SHIFT, 1, movetoworkspacesilent, 1"
+	"$mod SHIFT, 2, movetoworkspacesilent, 2"
+	"$mod SHIFT, 3, movetoworkspacesilent, 3"
+	"$mod SHIFT, 4, movetoworkspacesilent, 4"
+	"$mod SHIFT, 5, movetoworkspacesilent, 5"
+	"$mod, mouse_down, workspace, e-1"
+	"$mod, mouse_up, workspace, e+1"
+	"$mod SHIFT, P, exec, hyprshot -m output --clipboard-only"
+	"$mod Left_Ctrl, P, exec, hyprshot -m region --clipboard-only"
+	"$mod, P, exec, hyprshot -m window --clipboard-only"
       ];
+      gestures = {
+ 	workspace_swipe = true;
+      };
+      env = [
+        "XDG_SESSION_TYPE,wayland"
+	"XDG_CURRENT_DESKTOP,Hyprland"
+	"XDG_SESSION_DESKTOP,Hyprland"
+	"ELECTRON_OZONE_PLATFORM_HINT,auto"
+      ];
+      input = {
+        natural_scroll = true;
+      };
     };
   };
 
