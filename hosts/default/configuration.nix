@@ -51,7 +51,7 @@
       enable = true;
     };
   };
-  services.dispalyManager.defaultSession = "hyprland";
+  services.displayManager.defaultSession = "hyprland";
 
   # Configure Hyprland
   programs.hyprland.enable = true;
