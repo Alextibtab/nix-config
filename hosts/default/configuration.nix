@@ -47,11 +47,11 @@
   # Configure SDDM
   services.displayManager.sddm = {
     enable = true;
-    defaultSession = "hyprland";
     wayland = {
       enable = true;
     };
   };
+  services.dispalyManager.defaultSession = "hyprland";
 
   # Configure Hyprland
   programs.hyprland.enable = true;
