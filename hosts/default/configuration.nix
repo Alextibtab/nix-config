@@ -44,6 +44,15 @@
   # Enable bluetooth
   hardware.bluetooth.enable = true;
 
+  # Configure SDDM
+  services.displayManager.sddm = {
+    enable = true;
+    defaultSession = "hyprland";
+    wayland = {
+      enable = true;
+    };
+  };
+
   # Configure Hyprland
   programs.hyprland.enable = true;
   # Waybar 
@@ -87,26 +96,12 @@
     };
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  # Install neovim
-  programs.neovim.enable = true;
-  programs.neovim.defaultEditor = true;
-
-  # Install git
-  programs.git.enable = true;
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    fastfetch
-    ghostty
-    discord-canary
-    btop
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
