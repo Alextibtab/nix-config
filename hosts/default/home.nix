@@ -32,7 +32,7 @@
     # '')
     pkgs.firefox
     pkgs.wofi
-    pgks.ghostty
+    pkgs.ghostty
     pkgs.fastfetch
   ];
 
