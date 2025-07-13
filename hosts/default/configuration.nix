@@ -44,6 +44,14 @@
   # Enable bluetooth
   hardware.bluetooth.enable = true;
 
+  # Enable OpenGL
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+  
+  services.xserver.videoDrivers = ["amdgpu"];
+
   # Configure SDDM
   services.displayManager.sddm = {
     enable = true;

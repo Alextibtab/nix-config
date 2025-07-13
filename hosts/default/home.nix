@@ -74,6 +74,15 @@
   # Hyprland config
   wayland.windowManager.hyprland = {
     enable = true;
+    settings = {
+      "$mod" = "SUPER";
+      bind = [
+        "$mod, F, exec, firefox"
+        "$mod, Q, exec, ghostty"
+        "$mod, M, exit,"
+        "$mod, C, killactive,"
+      ];
+    };
   };
 
   # Enable zsh
