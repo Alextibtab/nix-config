@@ -1,11 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "tibtab";
-  home.homeDirectory = "/home/tibtab";
-
-  home.stateVersion = "25.05";
-
   home.packages = [
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -25,7 +20,7 @@
     pkgs.fastfetch
     pkgs.vesktop
     pkgs.obs-studio
-    # pkgs.obsidian
+    pkgs.obsidian
   ];
 
   home.file = {
@@ -64,11 +59,39 @@
   # Enable mako (notifications)
   services.mako.enable = true;
 
+  # Enable swww
+  services.swww.enable = true;
+
   # Hyprland config
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
       "$mod" = "SUPER";
+      general = {
+        gaps_in = 5;
+	gaps_out = 20;
+
+	border_size = 2;
+	resize_on_border = true;
+	layout = "dwindle";
+      };
+      decoration = {
+        rounding = 10;
+	active_opacity = 0.95;
+	inactive_opacity = 0.95;
+	shadow = {
+	  enabled = true;
+	  range = 4;
+	  render_power = 3;
+	  "color" = "rgba(1a1a1aee)";
+	};
+	blur = {
+          enabled = true;
+	  size = 7;
+	  passes = 3;
+	  vibrancy = 0.1696;
+	};
+      };
       bind = [
         "$mod, Return, exec, ghostty"
         "$mod, M, exit,"
@@ -105,8 +128,21 @@
 	"ELECTRON_OZONE_PLATFORM_HINT,auto"
       ];
       input = {
-        natural_scroll = true;
+        follow_mouse = 1;
+        touchpad = {
+          natural_scroll = true;
+	};
       };
+    };
+  };
+
+  # GTK
+  gtk = {
+    enable = true;
+
+    theme = {
+      package = pkgs.nordic;
+      name = "Nordic";
     };
   };
 
@@ -134,7 +170,4 @@
     enable = true;
     defaultEditor = true;
   };
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }
