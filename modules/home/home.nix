@@ -16,7 +16,6 @@
     # '')
     pkgs.firefox
     pkgs.wofi
-    pkgs.ghostty
     pkgs.fastfetch
     pkgs.vesktop
     pkgs.obs-studio
@@ -65,6 +64,8 @@
   # Hyprland config
   wayland.windowManager.hyprland = {
     enable = true;
+    package = null;
+    portalPackage = null;
     settings = {
       "$mod" = "SUPER";
       general = {

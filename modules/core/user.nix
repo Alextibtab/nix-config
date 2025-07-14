@@ -14,7 +14,7 @@
     useUserPackages = true;
     useGlobalPkgs = true;
     users.${username} = {
-      imports = [ ./../home/home.nix ];
+      imports = [ ./../home ];
       home.username = "${username}";
       home.homeDirectory = "/home/${username}";
       home.stateVersion = "25.05";
