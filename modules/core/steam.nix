@@ -7,7 +7,7 @@
       dedicatedServer.openFirewall = false;
 
       gamescopeSession.enable = true;
-      extraCompatPackages = [ pkgs.proto-ge-bin ];
+      extraCompatPackages = [ pkgs.proton-ge-bin ];
     };
 
     gamescope = {

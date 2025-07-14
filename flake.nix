@@ -50,12 +50,12 @@
       nixosConfigurations = {
         laptop = nixpkgs.lib.nixosSystem {
           inherit system;
-	  modules = [ ./home/laptop ];
+	  modules = [ ./hosts/laptop ];
 	  specialArgs = {
             host = "laptop";
 	    inherit self inputs username;
 	  };
-	}
+	};
       };
     };
 }
