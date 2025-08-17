@@ -61,6 +61,8 @@
   # Enable swww
   services.swww.enable = true;
 
+  # Enable waybar
+
   # GTK
   gtk = {
     enable = true;

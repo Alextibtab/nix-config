@@ -7,7 +7,7 @@
       "XDG_SESSION_DESKTOP,Hyprland"
       "ELECTRON_OZONE_PLATFORM_HINT,auto"
       "HYPRCURSOR_THEME,rose-pine-hyprcursor"
-      "HYPRCURSOR_SIZE,20"
+      "HYPRCURSOR_SIZE,28"
     ];
   };
 }

@@ -14,6 +14,7 @@
     ./general.nix
     ./keybinds.nix
     ./env.nix
+    ./exec-once.nix
     inputs.hyprland.homeManagerModules.default
   ];
 }
