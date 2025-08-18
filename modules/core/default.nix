@@ -6,7 +6,7 @@
     ./network.nix
     ./nh.nix
     ./pipewire.nix
-    ./program.nix
+    ./packages.nix
     ./security.nix
     ./services.nix
     ./steam.nix

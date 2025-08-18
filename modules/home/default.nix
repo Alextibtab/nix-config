@@ -5,6 +5,7 @@
     ./nvim
     ./home.nix
     ./waybar.nix
+    ./lutris.nix
     ./ghostty.nix
     ./git.nix
     ./zsh.nix

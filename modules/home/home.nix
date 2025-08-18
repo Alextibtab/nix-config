@@ -20,6 +20,7 @@
     pkgs.vesktop
     pkgs.obs-studio
     pkgs.obsidian
+    pkgs.waypaper
   ];
 
   home.file = {
@@ -61,8 +62,6 @@
   # Enable swww
   services.swww.enable = true;
 
-  # Enable waybar
-
   # GTK
   gtk = {
     enable = true;
@@ -73,3 +72,4 @@
     };
   };
 }
+
