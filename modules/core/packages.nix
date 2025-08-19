@@ -5,6 +5,7 @@
 
   environment.systemPackages = with pkgs; [
     waypaper
+    brightnessctl
     hyprshot
     gnumake
     nodejs_24

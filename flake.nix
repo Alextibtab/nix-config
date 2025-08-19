@@ -37,7 +37,8 @@
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    
+    nixCats.url = "github:BirdeeHub/nixCats-nvim";
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
